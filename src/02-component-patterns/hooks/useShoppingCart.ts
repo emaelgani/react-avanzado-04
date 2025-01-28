@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Product, ProductInCart } from "../interfaces/interfaces"
+import { products } from "../data/products"
 
 
 export const useShoppingCart = () => {
@@ -10,27 +11,16 @@ export const useShoppingCart = () => {
     const onProductCountChange = ({count, product}: {count: number, product: Product}) => {
 
         setShoppingCart(oldShoppingCart => {
-            type NewType = ProductInCart
 
-            //Lo busco, y si no está, agrego uno nuevo
-            const productInCart: NewType = oldShoppingCart[product.id] || { ...product, count: 0}
-            
-            if(Math.max(productInCart.count + count, 0) > 0 ){
-                productInCart.count += count;
-                return {
-                    ...oldShoppingCart,
-                    [product.id]: productInCart
-                }
+            if(count === 0){
+                const {[product.id]: toDelete, ...rest} = oldShoppingCart;
+                return rest;
             }
-
-            //En caso contrario, borro el artículo.
-            const {[product.id]: toDelete, ...rest} = oldShoppingCart;
 
             return {
-                ...rest
+                ...oldShoppingCart,
+                [product.id]: {...product, count}
             }
-
-           
         })
 
 
