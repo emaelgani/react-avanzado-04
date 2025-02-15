@@ -1,0 +1,72 @@
+[
+
+    {
+        "type": "input",
+        "name": "firstName",
+        "placeholder": "Emanuel",
+        "label": "First Name",
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            },
+            {
+                "type": "minLength",
+                "value": 5
+            }
+        ]
+    },
+    {
+        "type": "input",
+        "name": "lastName",
+        "placeholder": "Elgani",
+        "label": "Last Name",
+        "value": "Elgani",
+        "validations": [
+            {
+                "type": "required"
+
+            }
+        ]
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeholder": "eelgani@gmail.com",
+        "label": "Email",
+        "value": "eelgani@gmail.com",
+        "validations": [
+            {
+                "type": "required"
+            },
+            {
+                "type": "email"
+            }
+        ]
+    },
+    {
+        "type": "select",
+        "name": "favoriteGame",
+        "label": "Favorite Game",
+        "value": "",
+        "options": [
+            {
+                "id": 1,
+                "label": "Super Mario"
+            },
+            {
+                "id": 2,
+                "label": "Batman"
+            }
+        ],
+        "validations": [
+            {
+                "type": "required"
+
+            }
+        ]
+    }
+
+]
+
+
